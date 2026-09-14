@@ -1,0 +1,127 @@
+.page {
+  position: relative; 
+  min-height: 100vh;
+  background: #f5f1ea;
+}
+
+.top-user {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+}
+
+.avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.menu {
+  margin-top: 200rpx;
+  padding: 0 60rpx;
+}
+
+.menu button {
+  margin-bottom: 40rpx;
+}
+
+.auth-mask {
+  position: fixed;
+  inset: 0;
+  background: #f6f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.auth-card {
+  width: 80%;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 48rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.desc {
+  color: #888;
+  margin: 24rpx 0 40rpx;
+}
+
+.auth-btn {
+  background: #07c160;
+  color: #fff;
+  border-radius: 40rpx;
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: vertical;   /* 不是 vertical */
+  align-items: center;
+  gap: 0rpx;
+  margin-top: 30rpx;
+  padding: 0 0rpx;   /* 改小 */
+  position: relative;
+  z-index: 2;
+}
+
+.menu-item {
+  width: 600rpx;
+}
+
+.menu-img {
+  width: 100%;
+  height: 500rpx;
+}
+.logo-img {
+  width: 500rpx;     /* 控制logo大小 */
+  height: 340rpx;
+  display: block;
+  margin: 120rpx auto 10rpx;  /* 上下间距 + 水平居中 */
+}
+.kid-bg{
+  position:absolute;
+  bottom:-50rpx;
+  width:1050rpx;
+  opacity:0.8;
+}
+
+.profile-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10rpx;
+  height: 48rpx;
+  border-radius: 0;
+  background: #f5f1ea;
+  border: 2rpx solid rgb(124,22,25);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.corner-entry {
+  position: absolute;
+  top: 28rpx;
+  left: 24rpx;
+  width: 118rpx;
+}
+
+.profile-entry-title {
+  display: block;
+  font-size: 20rpx;
+  font-weight: 600;
+  color: rgb(124,22,25);
+}

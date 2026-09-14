@@ -1,0 +1,323 @@
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;          /* 加这一行 */
+  padding-top: 80rpx;
+  background: #f5f1ea;
+  min-height: 100vh;
+}
+
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+
+  display: block;
+  margin: 0 auto;
+}
+
+.name {
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.score-box,
+.best-box {
+  display: flex;
+  flex-direction: vertical;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.score-img{
+  width: 100rpx;
+}
+.best-img {
+  width: 125rpx;
+}
+
+.score-text {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+  margin-left:19rpx;
+  color:rgb(122, 32, 36)
+}
+
+.best-text {
+  font-size: 40rpx;
+  margin-left:13rpx;
+  color:rgb(120, 32, 36);
+  margin-top: 10rpx;
+}
+.back-btn {
+  margin-top: 60rpx;
+  background-color: #e74c3c;
+  color: #fff;
+  width: 300rpx;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+
+.score-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   /* 居中 */
+  gap: 80rpx;                /* 两个之间的距离 */
+  margin-top: 60rpx;
+}
+
+.poster-actions {
+  width: calc(100% - 96rpx);
+  margin: 56rpx 48rpx 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18rpx;
+}
+
+.poster-btn {
+  height: 84rpx;
+  line-height: 84rpx;
+  border-radius: 18rpx;
+  background: #fffaf2;
+  color: rgb(124, 22, 25);
+  border: 2rpx solid rgba(124, 22, 25, 0.18);
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.poster-btn.primary {
+  background: rgb(124, 22, 25);
+  color: #fff;
+  border: none;
+}
+
+.result-hint {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #7d6a64;
+  text-align: center;
+}
+
+.result-error {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: rgb(124, 22, 25);
+  text-align: center;
+}
+
+.back-img {
+  width: 260rpx;
+  margin-top: 80rpx;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+ /* 遮罩层 */
+.login-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  z-index: 999;
+}
+
+/* 底部弹出卡片 */
+.login-card {
+  width: 100%;
+  min-height: 420rpx;
+  background: #ffffff;
+
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+
+  padding: 50rpx 40rpx 70rpx 40rpx;
+  box-sizing: border-box;
+}
+
+/* 顶部小灰条（微信风格） */
+.drag-bar{
+  width: 90rpx;
+  height: 10rpx;
+  background: #e5e5e5;
+  border-radius: 10rpx;
+  margin: 0 auto 40rpx auto;
+}
+
+/* 标题 */
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #111;
+  text-align: center;
+}
+
+/* 描述 */
+.desc {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #888;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.profile-error {
+  margin-top: 24rpx;
+  color: rgb(124, 22, 25);
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.profile-saving {
+  margin-top: 24rpx;
+  color: #666;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+/* 按钮区域 */
+.btn-group {
+  margin-top: 60rpx;
+  display: flex;
+  gap: 24rpx;
+}
+
+/* 按钮通用 */
+.cancel-btn,
+.confirm-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 18rpx;
+  font-size: 30rpx;
+  border: none;
+}
+
+/* 取消按钮 */
+.cancel-btn {
+  background: #f2f2f2;
+  color: #333;
+}
+
+/* 登录按钮 */
+.confirm-btn {
+  background: #07c160;
+  color: #fff;
+}
+
+/* 按钮点击效果 */
+.cancel-btn:active {
+  background: #e6e6e6;
+}
+
+.confirm-btn:active {
+  background: #06ad56;
+}
+
+.battle-result-card {
+  width: calc(100% - 48rpx);
+  margin: 0 24rpx;
+  padding: 36rpx 28rpx 44rpx;
+  box-sizing: border-box;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16rpx 40rpx rgba(125, 81, 16, 0.14);
+}
+
+.battle-title {
+  text-align: center;
+  font-size: 46rpx;
+  font-weight: 700;
+  color: #7a3b00;
+}
+
+.battle-subtitle {
+  margin-top: 16rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #8c5c22;
+}
+
+.battle-players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-top: 32rpx;
+}
+
+.winner-card {
+  margin-top: 32rpx;
+  padding: 32rpx 24rpx;
+  border-radius: 28rpx;
+  background: #faf8f4;
+  border: 2rpx solid rgba(124, 22, 25, 0.12);
+  text-align: center;
+}
+
+.winner-label {
+  font-size: 26rpx;
+  color: #7d6a64;
+  letter-spacing: 4rpx;
+}
+
+.winner-name {
+  margin-top: 18rpx;
+  font-size: 38rpx;
+  font-weight: 700;
+  color: rgb(124, 22, 25);
+}
+
+.battle-player {
+  padding: 24rpx 18rpx;
+  border-radius: 22rpx;
+  background: #fff7e7;
+  text-align: center;
+}
+
+.battle-score {
+  margin-top: 14rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #ff7b22;
+}
+
+.battle-correct {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #8c5c22;
+}
+
+.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffd994;
+  color: #7a3b00;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.poster-canvas {
+  position: fixed;
+  left: -9999rpx;
+  top: -9999rpx;
+  width: 750px;
+  height: 1334px;
+  opacity: 0;
+  pointer-events: none;
+}

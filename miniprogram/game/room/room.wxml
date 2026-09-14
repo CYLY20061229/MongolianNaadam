@@ -1,0 +1,54 @@
+<view class="room-page">
+  <view wx:if="{{loadingText}}" class="room-card state-card">
+    <view class="title">双人对战房间</view>
+    <view class="tips">{{loadingText}}</view>
+  </view>
+
+  <view wx:elif="{{errorText}}" class="room-card state-card">
+    <view class="title">进入失败</view>
+    <view class="tips">{{errorText}}</view>
+    <button class="primary-btn" bindtap="retryEnterRoom">重试</button>
+  </view>
+
+  <view wx:elif="{{room}}" class="room-card">
+    <view class="title">双人对战房间</view>
+
+    <view class="tips">分享邀请给好友加入，双方准备后由房主开始。</view>
+
+    <view class="players">
+      <view class="player-card" wx:for="{{room.players}}" wx:key="openid">
+        <image wx:if="{{item.avatarUrl}}" class="avatar" src="{{item.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-placeholder">{{item.nickName}}</view>
+        <view class="name">{{item.nickName}}</view>
+        <view class="status {{item.ready ? 'ready' : 'waiting'}}">
+          {{item.ready ? '已准备' : '等待中'}}
+        </view>
+      </view>
+
+      <view class="player-card empty" wx:if="{{room.players.length < 2}}">
+        <view class="avatar avatar-placeholder">?</view>
+        <view class="name">等待好友加入</view>
+        <view class="status waiting">未加入</view>
+      </view>
+    </view>
+
+    <button wx:if="{{canInvite}}" class="primary-btn" open-type="share">邀请好友</button>
+
+    <button
+      wx:if="{{!isHost && !myReady}}"
+      class="primary-btn"
+      bindtap="ready">
+      我已准备
+    </button>
+
+    <view wx:if="{{!isHost && myReady}}" class="ready-text">你已准备，等待房主开始</view>
+    <view wx:if="{{waitingStartText}}" class="ready-text">{{waitingStartText}}</view>
+
+    <button
+      wx:if="{{canStart}}"
+      class="primary-btn"
+      bindtap="startGame">
+      开始对战
+    </button>
+  </view>
+</view>

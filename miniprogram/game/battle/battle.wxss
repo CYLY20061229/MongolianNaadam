@@ -1,0 +1,157 @@
+.battle-page {
+  min-height: 100vh;
+  padding: 24rpx;
+  box-sizing: border-box;
+  background: #f5f1ea;
+}
+
+.battle-top {
+  display: grid;
+  grid-template-columns: 1fr 180rpx 1fr;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.player-panel,
+.question-meta,
+.progress-card,
+.question-card {
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12rpx 32rpx rgba(124, 22, 25, 0.08);
+  border: 2rpx solid rgba(124, 22, 25, 0.08);
+}
+
+.player-panel {
+  padding: 22rpx 16rpx;
+  text-align: center;
+}
+
+.question-meta {
+  padding: 22rpx 12rpx;
+  text-align: center;
+}
+
+.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #efe5d8;
+  border: 4rpx solid rgb(124, 22, 25);
+}
+
+.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(124, 22, 25);
+  font-size: 22rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+}
+
+.player-name {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.player-score {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: rgb(124, 22, 25);
+}
+
+.round-text {
+  font-size: 24rpx;
+  color: #7d6a64;
+}
+
+.timer {
+  margin-top: 10rpx;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: rgb(124, 22, 25);
+}
+
+.progress-card {
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+
+.progress-bar-bg {
+  height: 16rpx;
+  border-radius: 999rpx;
+  background: #e6e0d6;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgb(124, 22, 25), rgb(170, 40, 45));
+}
+
+.progress-text {
+  margin-top: 12rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #7d6a64;
+}
+
+.question-card {
+  margin-top: 20rpx;
+  padding: 24rpx;
+}
+
+.question-img {
+  width: 100%;
+  height: 480rpx;
+  border-radius: 18rpx;
+  background: #faf8f4;
+}
+
+.options {
+  margin-top: 22rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+}
+
+.option-btn {
+  border-radius: 20rpx;
+  background: #ffffff;
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: 2rpx solid rgba(124, 22, 25, 0.15);
+  box-shadow: 0 8rpx 20rpx rgba(124, 22, 25, 0.05);
+}
+
+.option-btn.correct {
+  background: rgb(124, 22, 25);
+  color: #fff;
+  border: none;
+}
+
+.option-btn.wrong {
+  background: #eee;
+  color: #999;
+  border: none;
+}
+
+.waiting-text {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #7d6a64;
+}
+
+.opponent-panel {
+  opacity: 0.92;
+}

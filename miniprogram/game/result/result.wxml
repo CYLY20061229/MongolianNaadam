@@ -1,0 +1,119 @@
+<view wx:if="{{showLoginModal}}" class="login-mask">
+  <view class="login-card">
+    <view class="title">创建你的玩家信息</view>
+
+    <button class="avatar-btn" bindtap="chooseAvatar">
+      点击选择头像
+      <image wx:if="{{displayAvatar}}" class="avatar" src="{{displayAvatar}}"></image>
+      <view wx:else class="avatar avatar-placeholder">头像</view>
+    </button>
+
+    <input
+      class="nick-input"
+      placeholder="请输入昵称"
+      bindinput="onInputName"
+    />
+
+    <view wx:if="{{profileError}}" class="profile-error">{{profileError}}</view>
+    <view wx:if="{{savingProfile}}" class="profile-saving">正在保存...</view>
+
+    <view class="btn-group">
+      <button class="confirm-btn" bindtap="confirmLogin" disabled="{{savingProfile}}">
+        {{savingProfile ? '保存中...' : '开始游戏'}}
+      </button>
+      <button wx:if="{{mode === 'profile'}}" class="cancel-btn" bindtap="cancelLogin">稍后再说</button>
+    </view>
+  </view>
+</view>
+
+<view class="result">
+  <view wx:if="{{mode === 'single' && !showLoginModal}}">
+    <image wx:if="{{displayAvatar}}" class="avatar" src="{{displayAvatar}}" />
+    <view wx:else class="avatar avatar-placeholder">头像</view>
+    <view class="name">{{nickName}}</view>
+
+    <view class="score-wrapper">
+      <view class="score-box">
+        <image class="score-img" src="{{imgScore}}" mode="widthFix" />
+        <text class="score-text">{{score}}</text>
+      </view>
+
+      <view class="best-box">
+        <image class="best-img" src="{{imgBest}}" mode="widthFix" />
+        <text class="best-text">{{best}}</text>
+      </view>
+    </view>
+
+    <view class="poster-actions">
+      <button class="poster-btn primary" bindtap="generatePoster" disabled="{{posterGenerating}}">
+        {{posterGenerating ? '生成中...' : '生成分数海报'}}
+      </button>
+      <button class="poster-btn" bindtap="savePoster">保存海报</button>
+      <button class="poster-btn" bindtap="sharePoster">分享海报</button>
+    </view>
+
+    <view wx:if="{{scoreSyncing}}" class="result-hint">分数同步中...</view>
+    <view wx:if="{{scoreSyncError}}" class="result-error">{{scoreSyncError}}</view>
+    <view wx:if="{{posterError}}" class="result-error">{{posterError}}</view>
+
+    <image class="back-img" src="{{imgBack}}" mode="widthFix" bindtap="restart" />
+  </view>
+
+  <view wx:if="{{mode === 'battle' && battleResultLoading}}" class="battle-result-card">
+    <view class="battle-title">正在结算...</view>
+  </view>
+
+  <view wx:if="{{mode === 'battle' && battleResultError}}" class="battle-result-card">
+    <view class="battle-title">结算异常</view>
+    <view class="battle-subtitle">{{battleResultError}}</view>
+    <image class="back-img" src="{{imgBack}}" mode="widthFix" bindtap="restart" />
+  </view>
+
+  <view wx:if="{{mode === 'battle' && battleSummary}}" class="battle-result-card">
+    <view class="battle-title">{{battleSummary.title}}</view>
+    <view class="battle-subtitle">{{battleSummary.subtitle}}</view>
+
+    <view class="winner-card">
+      <view class="winner-label">{{battleSummary.winnerTitle}}</view>
+      <block wx:if="{{battleSummary.isTie}}">
+        <view class="winner-name">双方战平</view>
+        <view class="battle-score">
+          {{battleSummary.me.totalScore}} : {{battleSummary.opponent.totalScore}}
+        </view>
+      </block>
+      <block wx:else>
+        <image wx:if="{{battleSummary.winner.avatarUrl}}" class="avatar" src="{{battleSummary.winner.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-placeholder">{{battleSummary.winner.nickName}}</view>
+        <view class="winner-name">{{battleSummary.winner.nickName}}</view>
+        <view class="battle-score">{{battleSummary.winner.totalScore}} 分</view>
+      </block>
+    </view>
+
+    <view class="battle-players">
+      <view class="battle-player">
+        <image wx:if="{{battleSummary.me.avatarUrl}}" class="avatar" src="{{battleSummary.me.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-placeholder">{{battleSummary.me.nickName}}</view>
+        <view class="name">{{battleSummary.me.nickName}}</view>
+        <view class="battle-score">{{battleSummary.me.totalScore}} 分</view>
+        <view class="battle-correct">答对 {{battleSummary.me.correctCount}} 题</view>
+      </view>
+
+      <view class="battle-player" wx:if="{{battleSummary.opponent}}">
+        <image wx:if="{{battleSummary.opponent.avatarUrl}}" class="avatar" src="{{battleSummary.opponent.avatarUrl}}" mode="aspectFill" />
+        <view wx:else class="avatar avatar-placeholder">{{battleSummary.opponent.nickName}}</view>
+        <view class="name">{{battleSummary.opponent.nickName}}</view>
+        <view class="battle-score">{{battleSummary.opponent.totalScore}} 分</view>
+        <view class="battle-correct">答对 {{battleSummary.opponent.correctCount}} 题</view>
+      </view>
+    </view>
+
+    <image class="back-img" src="{{imgBack}}" mode="widthFix" bindtap="restart" />
+  </view>
+</view>
+
+<canvas
+  canvas-id="scorePoster"
+  class="poster-canvas"
+  style="width: 750px; height: 1334px;"
+  disable-scroll="true"
+></canvas>

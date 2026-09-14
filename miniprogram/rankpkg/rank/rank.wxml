@@ -1,0 +1,40 @@
+<view class="rank-page">
+  <view class="page-actions">
+    <view class="edit-profile-btn" bindtap="goEditProfile">修改资料</view>
+  </view>
+
+  <view class="state-card" wx:if="{{loading}}">
+    <text class="state-text">排行榜加载中...</text>
+  </view>
+
+  <view class="state-card" wx:elif="{{error}}">
+    <text class="state-text">{{error}}</text>
+    <view class="retry-btn" bindtap="retryLoad">重新加载</view>
+  </view>
+
+  <block wx:else>
+    <view class="rank-item me" wx:if="{{me}}">
+      <text class="rank">{{myRank}}</text>
+      <image class="avatar" src="{{me.avatarUrl}}" wx:if="{{me.avatarUrl}}" />
+      <view class="avatar avatar-fallback" wx:else>{{me.avatarText}}</view>
+      <text class="name">{{me.nickName}}</text>
+      <text class="score">{{me.bestScore}}</text>
+    </view>
+
+    <view class="divider">TOP 100</view>
+
+    <view class="state-card" wx:if="{{emptyText}}">
+      <text class="state-text">{{emptyText}}</text>
+    </view>
+
+    <block wx:for="{{list}}" wx:key="_id">
+      <view class="rank-item">
+        <text class="rank">{{item.rank}}</text>
+        <image class="avatar" src="{{item.avatarUrl}}" wx:if="{{item.avatarUrl}}" />
+        <view class="avatar avatar-fallback" wx:else>{{item.avatarText}}</view>
+        <text class="name">{{item.nickName}}</text>
+        <text class="score">{{item.bestScore}}</text>
+      </view>
+    </block>
+  </block>
+</view>

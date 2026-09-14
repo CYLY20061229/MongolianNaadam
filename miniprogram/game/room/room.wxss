@@ -1,0 +1,120 @@
+.room-page {
+  min-height: 100vh;
+  padding: 40rpx 28rpx;
+  box-sizing: border-box;
+  background: #f5f1ea;
+}
+
+.room-card {
+  padding: 36rpx 28rpx 40rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12rpx 32rpx rgba(124, 22, 25, 0.08);
+  border: 2rpx solid rgba(124, 22, 25, 0.08);
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: rgb(124, 22, 25);
+  text-align: center;
+  letter-spacing: 4rpx;
+}
+
+.tips {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+  color: #7d6a64;
+  text-align: center;
+}
+
+.players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+.player-card {
+  padding: 26rpx 20rpx;
+  border-radius: 24rpx;
+  background: #faf8f4;
+  border: 2rpx solid rgba(124, 22, 25, 0.08);
+  text-align: center;
+}
+
+.player-card.empty {
+  opacity: 0.8;
+}
+
+.avatar {
+  width: 108rpx;
+  height: 108rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #efe5d8;
+  border: 4rpx solid rgb(124, 22, 25);
+}
+
+.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(124, 22, 25);
+  font-size: 24rpx;
+  font-weight: 700;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.name {
+  margin-top: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.status {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  border-radius: 999rpx;
+}
+
+.status.ready {
+  color: rgb(124, 22, 25);
+  background: rgba(124, 22, 25, 0.08);
+}
+
+.status.waiting {
+  color: #7d6a64;
+  background: #efe5d8;
+}
+
+.primary-btn {
+  margin-top: 24rpx;
+  border-radius: 999rpx;
+  background: rgb(124, 22, 25);
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 12rpx 28rpx rgba(124, 22, 25, 0.14);
+}
+
+.primary-btn[disabled] {
+  background: #cabfb6;
+  color: #fff;
+  box-shadow: none;
+}
+
+.ready-text {
+  margin-top: 24rpx;
+  text-align: center;
+  color: rgb(124, 22, 25);
+  font-size: 28rpx;
+  font-weight: 600;
+}

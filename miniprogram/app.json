@@ -1,0 +1,28 @@
+{
+    "pages": [
+      "pages/index/index"
+    ],
+  
+    "subpackages": [
+      {
+        "root": "game",
+        "pages": [
+          "single/single",
+          "room/room",
+          "result/result",
+          "battle/battle"
+        ]
+      },
+      {
+        "root": "rankpkg",
+        "pages": [
+          "rank/rank"
+        ]
+      }
+    ]
+  ,
+  "window": {
+    "navigationBarTitleText": "头脑那达慕"
+  },
+  "lazyCodeLoading": "requiredComponents"
+}

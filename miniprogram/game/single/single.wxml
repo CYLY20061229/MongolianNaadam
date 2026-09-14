@@ -1,0 +1,93 @@
+<view wx:if="{{gameState === 'playing'}}">
+  <view class="container">
+    <view class="hud-panel">
+      <view class="arena-head">
+        <view class="arena-title-group">
+          <text class="arena-kicker">SINGLE ARENA</text>
+          <text class="arena-title">单人积分赛</text>
+        </view>
+        <view class="round-chip">第{{questionNumber}}题</view>
+      </view>
+
+      <view class="top-bar">
+        <view class="player">
+          <image class="avatar" src="{{avatar}}" />
+          <view class="player-meta">
+            <text class="player-label">参赛玩家</text>
+            <text class="name">{{nickName}}</text>
+          </view>
+        </view>
+
+        <view class="score-panel">
+          <text class="score-label">当前得分</text>
+          <text class="score">{{score}}</text>
+        </view>
+      </view>
+
+      <view class="stats-row">
+        <view class="stat-card">
+          <text class="stat-label">剩余时间</text>
+          <text class="stat-value {{timeState}}">{{time}}s</text>
+        </view>
+        <view class="stat-card">
+          <text class="stat-label">连击状态</text>
+          <text class="stat-value combo">{{comboDisplay}}</text>
+        </view>
+        <view class="stat-card">
+          <text class="stat-label">剩余容错</text>
+          <text class="stat-value">{{reviveCount - wrongCount + 1}}</text>
+        </view>
+      </view>
+
+      <view class="time-bar-bg">
+        <view
+          class="time-bar {{timeState}}"
+          style="width: {{time / 20 * 100}}%;"
+        ></view>
+      </view>
+
+      <view class="time-meta">
+        <text class="time-text">{{time}}s</text>
+        <text class="time-hint {{timeState}}">{{timerPrompt}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{comboVisible}}" class="combo-banner">
+      <text class="combo-text">{{comboText}}</text>
+    </view>
+
+    <view class="question-row">
+      <image
+        wx:if="{{question.picture}}"
+        class="question-img"
+        src="{{question.picture}}"
+        mode="aspectFit"
+      />
+
+      <view class="options">
+        <block wx:for="{{question.options}}" wx:key="index">
+          <button
+            class="option-btn {{optionStatus[index]}}"
+            bindtap="answer"
+            data-i="{{index}}"
+          >
+            {{item}}
+          </button>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{gameState === 'reviving'}}" class="revive-mask">
+  <view class="revive-card">
+    <text class="revive-title">答错了 剩余复活次数{{reviveCount-wrongCount+1}}</text>
+    <text class="revive-desc">分享即可复活继续挑战</text>
+
+    <button
+      class="revive-btn"
+      open-type="share">
+      立即复活
+    </button>
+  </view>
+</view>

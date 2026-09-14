@@ -1,0 +1,47 @@
+<view class="battle-page" wx:if="{{room && currentQuestion}}">
+  <view class="battle-top">
+    <view class="player-panel">
+      <image wx:if="{{myPlayer.avatarUrl}}" class="avatar" src="{{myPlayer.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-placeholder">{{myPlayer.nickName}}</view>
+      <view class="player-name">{{myPlayer.nickName}}</view>
+      <view class="player-score">{{myPlayer.totalScore}} 分</view>
+    </view>
+
+    <view class="question-meta">
+      <view class="round-text">{{statusText}}</view>
+      <view class="timer">{{timeLeft}}s</view>
+    </view>
+
+    <view class="player-panel opponent-panel" wx:if="{{opponent}}">
+      <image wx:if="{{opponent.avatarUrl}}" class="avatar" src="{{opponent.avatarUrl}}" mode="aspectFill" />
+      <view wx:else class="avatar avatar-placeholder">{{opponent.nickName}}</view>
+      <view class="player-name">{{opponent.nickName}}</view>
+      <view class="player-score">{{opponent.totalScore}} 分</view>
+    </view>
+  </view>
+
+  <view class="progress-card">
+    <view class="progress-bar-bg">
+      <view class="progress-bar" style="width: {{timeProgress}}%;"></view>
+    </view>
+    <view class="progress-text">第 {{currentQuestionNumber}} / {{room.totalQuestions}} 题</view>
+  </view>
+
+  <view class="question-card">
+    <image class="question-img" src="{{currentQuestion.picture}}" mode="aspectFit" />
+
+    <view class="options">
+      <button
+        wx:for="{{currentQuestion.options}}"
+        wx:key="index"
+        class="option-btn {{optionStatus[index]}}"
+        data-i="{{index}}"
+        bindtap="answer"
+        disabled="{{hasAnswered}}">
+        {{item}}
+      </button>
+    </view>
+
+    <view wx:if="{{waitingText}}" class="waiting-text">{{waitingText}}</view>
+  </view>
+</view>
